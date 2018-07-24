@@ -69,15 +69,9 @@ class Current extends Component {
             {isEmpty(track) ? (
               <div className="col-xl-12 col-lg-12 text-center">
                 <Spinner />
-                <h2 className="mt-2">Be sure you are played some track.</h2>
-                <button
-                  onClick={() => {
-                    this.props.history.push("/search");
-                  }}
-                  className="btn btn-lg btn-login mt-4"
-                >
-                  BACK
-                </button>
+                <h2 className="mt-2 m-5">
+                  Are you listening to spotify right now?
+                </h2>
               </div>
             ) : (
               <div className="row current-card p-4">
@@ -119,7 +113,7 @@ class Current extends Component {
               onClick={() => {
                 this.props.history.push("/search");
               }}
-              className="btn btn-lg btn-login mt-4"
+              className="btn btn-lg btn-login mt-5"
             >
               BACK
             </button>

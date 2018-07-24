@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-
+const config = require("./config/config");
 const Auth = require("./routes/api/auth");
 const Search = require("./routes/api/search");
 const Current = require("./routes/api/current");
@@ -25,6 +25,7 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
+// PLEASE FILL YOUR .ENV FILE:
 
 const port = process.env.PORT || 5000;
 

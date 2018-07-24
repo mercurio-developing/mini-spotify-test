@@ -48,7 +48,7 @@ class Search extends Component {
         <div className="col-xl-6 col-lg-6 mx-auto my-auto">
           <h4 className="empty text-center">
             {" "}
-            Please search a album,track or artist...
+            Please search an album, track or artist...
           </h4>
         </div>
       ) : !isEmpty(this.state.tracks) ? (
@@ -66,7 +66,7 @@ class Search extends Component {
             onClick={() => {
               logoutUser();
             }}
-            className="btn btn-danger btn-sm float-right"
+            className="btn btn-danger btn-sm float-right mb-5"
           >
             Logout
           </button>
@@ -116,7 +116,7 @@ class Search extends Component {
                       }
                       alt=""
                     />
-                    <p className="empty">LIVE NOW!</p>
+                    <p className="empty mt-2">ON NOW!</p>
                   </div>
                 </div>
                 <input
