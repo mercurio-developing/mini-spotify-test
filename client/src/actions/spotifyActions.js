@@ -1,4 +1,5 @@
 import axios from "axios";
+import isEmpty from "../validation/is-empty";
 
 import {
   GET_ERRORS,
@@ -10,21 +11,29 @@ import {
 
 export const SearchTracks = query => dispatch => {
   dispatch(setTrackLoading());
-  axios
-    .post("/api/search", { query })
-    .then(res => {
-      let tracks = res.data.tracks.items;
-      dispatch({
-        type: GET_TRACKS,
-        payload: tracks
-      });
-    })
-    .catch(err => {
-      dispatch({
-        type: GET_TRACKS,
-        payload: null
-      });
+  if (isEmpty(query)) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: "Please search a track"
     });
+  } else {
+    dispatch(clearErrors());
+    axios
+      .post("/api/search", { query })
+      .then(res => {
+        let tracks = res.data.tracks.items;
+        dispatch({
+          type: GET_TRACKS,
+          payload: tracks
+        });
+      })
+      .catch(err => {
+        dispatch({
+          type: GET_TRACKS,
+          payload: null
+        });
+      });
+  }
 };
 
 export const CurrentTrack = query => dispatch => {

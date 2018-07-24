@@ -1,6 +1,7 @@
 import React from "react";
 
 export default props => {
+  console.log(props);
   return (
     <table className="table col-lg-12 col-xl-12 m-0">
       <thead className="border">
@@ -18,7 +19,7 @@ export default props => {
       </thead>
       <tbody>
         {props.tracks.map(track => (
-          <tr key="track.id">
+          <tr key={track.id}>
             <td className="border-right border-bottom">
               {track.artists[0].name}
             </td>

@@ -4,19 +4,20 @@ import { SearchTracks } from "../../actions/spotifyActions";
 import { connect } from "react-redux";
 import Results from "./Results";
 import "./Search.css";
+import isEmpty from "../../validation/is-empty";
 
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: ""
+      query: "",
+      errors: {}
     };
     this.onChange = this.onChange.bind(this);
     this.onSearch = this.onSearch.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
-    console.log(newProps);
     if (newProps.errors) {
       this.setState({ errors: newProps.errors });
     }
@@ -32,14 +33,30 @@ class Search extends Component {
   }
 
   onSearch(e) {
-    let query = this.state.query;
-    console.log(query);
     e.preventDefault();
+    let query = this.state.query;
     this.props.SearchTracks(query);
   }
 
   render() {
     const { tracks, errors } = this.state;
+
+    const results =
+      tracks === undefined ? (
+        <div className="col-xl-6 col-lg-6 mx-auto my-auto">
+          <h4 className="empty text-center">
+            {" "}
+            Please search a album,track or artist...
+          </h4>
+        </div>
+      ) : !isEmpty(this.state.tracks) ? (
+        <Results tracks={this.state.tracks} />
+      ) : (
+        <div className="col-xl-6 col-lg-6 mx-auto my-auto">
+          <h4 className="empty text-center">No results...</h4>
+        </div>
+      );
+
     return (
       <div className="row h-75 pt-5 ">
         <div className="col-xl-12 col-lg-12 mx-auto my-auto">
@@ -69,6 +86,11 @@ class Search extends Component {
                       onChange={this.onChange}
                     />
                     <span />
+                    {!isEmpty(this.state.errors) ? (
+                      <p className="float-left error">{this.state.errors}</p>
+                    ) : (
+                      <p className="float-left error" />
+                    )}
                   </div>
                   <div className="col-xl-3 col-lg-3">
                     <img
@@ -85,7 +107,6 @@ class Search extends Component {
                     <p className="empty">LIVE NOW!</p>
                   </div>
                 </div>
-
                 <input
                   className="btn btn-lg btn-search mt-5"
                   type="submit"
@@ -94,17 +115,7 @@ class Search extends Component {
               </form>
             </div>
           </div>
-          <div className="row search-card mt-5 mb-5">
-            {this.state.tracks ? (
-              <Results tracks={this.state.tracks} />
-            ) : (
-              <div className="col-xl-6 col-lg-6 mx-auto my-auto">
-                <h4 className="empty text-center">
-                  Please Search a Artist, Track, Album...
-                </h4>
-              </div>
-            )}
-          </div>
+          <div className="row search-card mt-5 mb-5">{results}</div>
         </div>
       </div>
     );

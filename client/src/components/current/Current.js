@@ -56,7 +56,18 @@ class Current extends Component {
               </div>
             </div>
             {isEmpty(track) ? (
-              <Spinner />
+              <div className="col-xl-12 col-lg-12 text-center">
+                <Spinner />
+                <h2 className="mt-2">Be sure you are played some track.</h2>
+                <button
+                  onClick={() => {
+                    this.props.history.push("/search");
+                  }}
+                  className="btn btn-lg btn-login mt-4"
+                >
+                  BACK
+                </button>{" "}
+              </div>
             ) : (
               <div className="row current-card">
                 <div className="col-xl-12 col-lg-12">
