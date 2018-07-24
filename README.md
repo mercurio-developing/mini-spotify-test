@@ -1,6 +1,20 @@
-# Project Title
+#SPOTIFY SEARCH
 
-One Paragraph of project description goes here
+Small fully-responsive app to search tracks in Spotify and see what is currently playing on your Spotify account.
+
+How it works: Enter into localhost:3000 redirects to login page, click the button, redirects to spotify login, after login you recieve a callback code, with this in the routes auth you generate a token with the scopes to make the subsequent requests. After this the token is encoded and saved in localstorage. 
+
+Search component: enter a track, album, or artist, and the first 10 results are displayed. If no result is found a message appears. 
+
+Can only be accessed with token.
+
+Currently playing component: click the 'on now' button, the track that is currently playing on your spotify account is displayed. 
+
+Can only be accessed with token.
+
+I kept the UI simple, added some validations, covered some errors and security, and also made it responsive. 
+
+I used React, Redux, Bootstrap, SASS, Node.js, Express, and the Spotify API. 
 
 ## Getting Started
 
@@ -8,68 +22,41 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+You need to have a Spotify account to use this app as well as an app registerd with Spotify for Developers. 
+
+Node.js 8^
+
+Please create your own .env or fill ./config/config with your api account information
 
 ```
-Give examples
-```
 
-### Installing
+git clone  https://github.com/mercurio-developing/mini-spotify-test.git
 
-A step by step series of examples that tell you how to get a development env running
+cd mini-spotify-test
 
-Say what the step will be
+npm install && npm install --prefix client
 
-```
-Give the example
-```
-
-And repeat
+npm run dev
 
 ```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+no tests impelemented 
 
-### Break down into end to end tests
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+https://reactjs.org/
+https://getbootstrap.com/docs/4.0/getting-started/introduction/
+https://sass-lang.com
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
+https://developer.spotify.com/documentation/web-api/
+https://developer.spotify.com/documentation/web-api/reference/search/search/
+https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/
+Spotify API library in node.js
+https://github.com/thelinmichael/spotify-web-api-node
 ## Authors
 
 * ALEJANDRO M FIDANZA
@@ -77,9 +64,3 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## License
 
 This project is licensed under the MIT License 
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
