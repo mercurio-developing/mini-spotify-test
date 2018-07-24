@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Proptypes from "prop-types";
 import { SearchTracks } from "../../actions/spotifyActions";
+import { logoutUser } from "../../actions/authActions";
+
 import { connect } from "react-redux";
 import Results from "./Results";
 import "./Search.css";
@@ -39,7 +41,7 @@ class Search extends Component {
   }
 
   render() {
-    const { tracks, errors } = this.state;
+    const { tracks, errors, logoutUser } = this.props;
 
     const results =
       tracks === undefined ? (
@@ -59,6 +61,16 @@ class Search extends Component {
 
     return (
       <div className="row h-75 pt-5 ">
+        <div className="col-xl-12 col-lg-12 mx-auto my-auto">
+          <button
+            onClick={() => {
+              logoutUser();
+            }}
+            className="btn btn-danger btn-sm float-right"
+          >
+            Logout
+          </button>
+        </div>
         <div className="col-xl-12 col-lg-12 mx-auto my-auto">
           <div className="row">
             <div className="col-xl-6 col-lg-6 mx-auto text-right">
@@ -124,6 +136,7 @@ class Search extends Component {
 
 Search.protoTypes = {
   SearchTracks: Proptypes.func.isRequired,
+  logoutUser: Proptypes.func.isRequired,
   errors: Proptypes.object.isRequired,
   loading: Proptypes.bool.isRequired
 };
@@ -136,5 +149,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { SearchTracks }
+  { SearchTracks, logoutUser }
 )(Search);

@@ -38,6 +38,7 @@ export const setSpotifyUser = decoded => {
 
 // Log user out
 export const logoutUser = () => dispatch => {
+  console.log("logout");
   // Remove token from localStorage
   localStorage.removeItem("jwtToken");
   // Remove auth header for future requests

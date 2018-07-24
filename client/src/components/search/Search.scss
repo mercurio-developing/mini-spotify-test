@@ -18,6 +18,11 @@
 .btn-search{
   @extend %button-primary
 }
+.btn-logout{
+  font-family: $font;
+  font-weight: bold;
+  color:#fff;
+}
 .search {
     color:#fff;
     background:#000;

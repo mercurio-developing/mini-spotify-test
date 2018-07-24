@@ -26,6 +26,11 @@
   color: #1db954;
   line-height: 2px; }
 
+.btn-logout {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  color: #fff; }
+
 .search {
   color: #fff;
   background: #000;
