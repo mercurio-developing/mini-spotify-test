@@ -1,0 +1,15 @@
+.current-card {
+    background-color: rgba(84, 84, 84, 0.8);
+    border-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: #fff;
+    min-height: 200px; }
+.brand-name{
+    font-family: $font;
+    color:$primary;
+    line-height: 2px;
+}
+.btn-search{
+  @extend %button-primary
+}

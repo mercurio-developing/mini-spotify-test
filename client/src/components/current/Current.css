@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:800");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:800");
+.btn-search {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400; }
+
+.btn-search {
+  background-color: #1db954;
+  color: #fff;
+  font-size: 18px;
+  padding: 12px 36px 12px 36px;
+  border-radius: 8px; }
+
+.current-card {
+  background-color: rgba(84, 84, 84, 0.8);
+  border-radius: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  color: #fff;
+  min-height: 200px; }
+
+.brand-name {
+  font-family: "Montserrat", sans-serif;
+  color: #1db954;
+  line-height: 2px; }

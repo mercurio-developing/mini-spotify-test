@@ -41,7 +41,7 @@ class Search extends Component {
   render() {
     const { tracks, errors } = this.state;
     return (
-      <div className="row h-75 ">
+      <div className="row h-75 pt-5 ">
         <div className="col-xl-12 col-lg-12 mx-auto my-auto">
           <div className="row">
             <div className="col-xl-6 col-lg-6 mx-auto text-right">
@@ -58,15 +58,34 @@ class Search extends Component {
           <div className="row mt-5 ">
             <div className="col-xl-8 col-lg-8 mx-auto text-center">
               <form onSubmit={this.onSearch}>
-                <input
-                  name="query"
-                  placeholder="Search..."
-                  className="search"
-                  type="text"
-                  value={this.state.query}
-                  onChange={this.onChange}
-                />
-                <span />
+                <div className="row">
+                  <div className="col-xl-9 col-lg-9">
+                    <input
+                      name="query"
+                      placeholder="Search..."
+                      className="search"
+                      type="text"
+                      value={this.state.query}
+                      onChange={this.onChange}
+                    />
+                    <span />
+                  </div>
+                  <div className="col-xl-3 col-lg-3">
+                    <img
+                      className="live-now"
+                      onClick={() => {
+                        this.props.history.push("/current");
+                      }}
+                      src={
+                        process.env.PUBLIC_URL +
+                        "/assets/Spotify_Icon_RGB_White.png"
+                      }
+                      alt=""
+                    />
+                    <p className="empty">LIVE NOW!</p>
+                  </div>
+                </div>
+
                 <input
                   className="btn btn-lg btn-search mt-5"
                   type="submit"

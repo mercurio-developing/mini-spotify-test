@@ -1,7 +1,6 @@
 import React from "react";
 
 export default props => {
-  console.log(props.tracks);
   return (
     <table className="table col-lg-12 col-xl-12 m-0">
       <thead className="border">

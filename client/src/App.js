@@ -16,7 +16,7 @@ import PrivateRoute from "./components/common/PrivateRoute";
 import "./App.css";
 import Login from "./components/login/Login";
 import Search from "./components/search/Search";
-
+import Current from "./components/current/Current";
 // Check for token
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -53,6 +53,13 @@ class App extends Component {
                     exact={true}
                     path={"/search"}
                     component={Search}
+                  />
+                </Switch>
+                <Switch>
+                  <PrivateRoute
+                    exact={true}
+                    path={"/current"}
+                    component={Current}
                   />
                 </Switch>
               </div>

@@ -4,8 +4,8 @@ import {
   GET_ERRORS,
   CLEAR_ERRORS,
   GET_TRACKS,
-  GET_TRACK,
-  TRACK_LOADING
+  TRACK_LOADING,
+  GET_CURRENT_TRACK
 } from "./types";
 
 export const SearchTracks = query => dispatch => {
@@ -22,6 +22,27 @@ export const SearchTracks = query => dispatch => {
     .catch(err => {
       dispatch({
         type: GET_TRACKS,
+        payload: null
+      });
+    });
+};
+
+export const CurrentTrack = query => dispatch => {
+  // dispatch(setTrackLoading());
+  console.log("getCURRENT");
+  axios
+    .post("/api/current")
+    .then(res => {
+      let track = res.data;
+      console.log(track);
+      dispatch({
+        type: GET_CURRENT_TRACK,
+        payload: track
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: GET_CURRENT_TRACK,
         payload: null
       });
     });

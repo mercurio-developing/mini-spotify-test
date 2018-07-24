@@ -11,7 +11,12 @@ const spotifyApi = new SpotifyWebApi({
 });
 
 router.post("/login", (req, res) => {
-  const scopes = ["user-read-private", "user-read-email"];
+  const scopes = [
+    "user-read-private",
+    "user-read-email",
+    "user-read-currently-playing",
+    "user-read-playback-state"
+  ];
   // Create the authorization URL
   let authorizeURL = spotifyApi.createAuthorizeURL(scopes);
   res.send(authorizeURL).status(201);

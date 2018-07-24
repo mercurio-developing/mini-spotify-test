@@ -52,3 +52,10 @@
 .empty {
   color: #fff;
   font-family: "Montserrat", sans-serif; }
+
+.live-now {
+  width: 50px;
+  transition: 0.5s; }
+
+.live-now:hover {
+  width: 55px; }
