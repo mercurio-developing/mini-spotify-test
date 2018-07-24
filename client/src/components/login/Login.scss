@@ -1,0 +1,21 @@
+@import 'styles/_variables.scss';
+@import 'styles/_structure.scss';
+
+.label-title{
+    color:#fff;
+    font-size:28px;
+}
+
+.login-card{
+    @extend %card;
+}
+
+.brand-name{
+    font-family: $font;
+    color:$primary;
+    line-height: 0px;
+}
+
+.btn-login{
+    @extend %button-primary;
+}

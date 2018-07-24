@@ -2,11 +2,19 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 
+const Auth = require("./routes/api/auth");
+const Search = require("./routes/api/search");
+const Current = require("./routes/api/current");
+
 const app = express();
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use("/api/", Auth);
+app.use("/api/search", Search);
+app.use("/api/current", Current);
 
 // Server static assets if in production
 if (process.env.NODE_ENV === "production") {

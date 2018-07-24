@@ -1,0 +1,50 @@
+@import 'styles/_variables.scss';
+@import 'styles/_structure.scss';
+
+.search-card{
+    background-color:rgba($secondary,0.8);
+    border-radius:8px;    
+    border-top-left-radius:8px;    
+    border-top-right-radius:8px;    
+    color:#fff;
+    min-height: 200px;
+}
+
+.brand-name{
+    font-family: $font;
+    color:$primary;
+    line-height: 2px;
+}
+.btn-search{
+  @extend %button-primary
+}
+.search {
+    color:#fff;
+    background:#000;
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 100%;
+    font-size:24px;
+    font-family: $font;
+  }
+  
+
+  .search + span {
+    display: block;
+    border-bottom: solid 3px rgba(255, 255, 255, 0.9);
+    width: 0;
+    -webkit-transition: width 500ms ease-in-out;
+    transition: width 500ms ease-in-out;
+  }
+  .search:focus + span {
+    width: 110%;          /*  used calc first, but won't work on Edge  */
+    -webkit-transition: width 500ms ease-in-out;
+    transition: width 500ms ease-in-out;
+  }
+
+.empty{
+  color:#fff;
+  font-family: $font;
+
+}

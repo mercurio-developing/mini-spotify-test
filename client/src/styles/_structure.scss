@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import './_variables.scss';
+
+// FONTS
+%Roboto-Bold{
+    font-family: 'Roboto', sans-serif;
+    font-style:normal;
+    font-weight: 400;
+}
+
+//LOGIN-CARD
+%card{
+    background-color:rgba($secondary,0.8);
+    padding:48px 32px 48px 32px;
+    border-radius:8px;
+}
+
+// BUTTON
+%button-primary{
+    @extend %Roboto-Bold;
+    background-color:$primary;
+    color:#fff;
+    font-size:18px;
+    padding:12px 36px 12px 36px;
+    border-radius:8px;
+}

@@ -1,2 +1,6 @@
 export const GET_ERRORS = "GET_ERRORS";
-export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
+export const SET_SPOTIFY_USER = "SET_SPOTIFY_USER";
+export const GET_TRACKS = "GET_TRACKS";
+export const GET_CURRENT_TRACK = "GET_CURRENT_TRACK";
+export const TRACK_LOADING = "TRACK_LOADING";
